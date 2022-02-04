@@ -1,0 +1,11 @@
+.profile__info {
+  flex-basis: 610px;
+  padding-left: 30px;
+  align-self: center;
+  color: #FFFFFF;
+  display: grid;
+  row-gap: 7px;
+  column-gap: 19px;
+  grid-template-columns: minmax(min-content, max-content) fit-content(24px);
+  grid-template-rows: minmax(min-content, max-content) minmax(min-content, max-content);
+}
