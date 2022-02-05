@@ -8,3 +8,35 @@
   row-gap: 20px;
   column-gap: 17px;
 }
+
+@media screen and (min-width: 1360px) {
+  .elements {
+    max-width: 1280px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .elements {
+    max-width: 710px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    column-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .elements {
+    max-width: 600px;
+    column-gap: 10px;
+    padding: 0 5px 48px;
+  }
+}
+
+@media screen and (max-width: 584px) {
+  .elements {
+    max-width: 282px;
+    grid-template-columns: 1fr;
+    padding-bottom: 48px;
+  }
+}
+

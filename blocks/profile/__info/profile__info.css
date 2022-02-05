@@ -9,3 +9,19 @@
   grid-template-columns: minmax(min-content, max-content) fit-content(24px);
   grid-template-rows: minmax(min-content, max-content) minmax(min-content, max-content);
 }
+
+@media screen and (min-width: 1360px) {
+  .profile__info {
+    flex-basis: 1010px;
+    padding-left: 40px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .profile__info {
+    flex-basis: 0;
+    padding:26px 0px 33px;
+    margin-left: 30px;
+    column-gap: 8px;
+  }
+}

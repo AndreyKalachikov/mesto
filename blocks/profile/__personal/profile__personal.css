@@ -4,3 +4,25 @@
   line-height: 22px;
   text-align: left;
 }
+
+@media screen and (max-width: 1024px) {
+  .profile__personal {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile__personal {
+    font-size: 15px;
+    line-height: 19px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .profile__personal {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+  }
+}
