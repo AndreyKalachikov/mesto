@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto Russia</title>
+</head>
+<body class="page">
+  <div class="page__container">
+
+    <header class="header">
+      <img src="./images/Vector.svg" alt="Логотип" class="header__logo">
+    </header>
+
+    <section class="profile" aria-label="Профиль">
+      <img src="./images/profilephoto.jpg" alt="Аватар" class="profile__avatar">
+      <div class="profile__info">
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <button class="profile__edit-button" title="Кнопка редактирования профиля"> </button>
+        <p class="profile__personal">Исследователь океана</p>
+      </div>
+      <button class="profile__add-button" title="Кнопка добавления карточки"></button>
+    </section>
+
+    <main class="elements">
+      <article class="elements__card" aria-label="Карточка места">
+        <img src="./images/Moscow.jpg" alt="Картинка-Москва" class="elements__image">
+        <div class="elements__content">
+          <p class="elements__text">Москва</p>
+          <button class="elements__like-button"></button>
+        </div>
+      </article>
+      <article class="elements__card" aria-label="Карточка места">
+        <img src="./images/Piter.jpg" alt="Картинка-Санкт-Петербург" class="elements__image">
+        <div class="elements__content">
+          <p class="elements__text">Санкт-Петербург</p>
+          <button class="elements__like-button"></button>
+        </div>
+      </article>
+      <article class="elements__card" aria-label="Карточка места">
+        <img src="./images/Kazan.jpg" alt="Картинка-Казань" class="elements__image">
+        <div class="elements__content">
+          <p class="elements__text">Казань</p>
+          <button class="elements__like-button"></button>
+        </div>
+      </article>
+      <article class="elements__card" aria-label="Карточка места">
+        <img src="./images/Crimea.jpg" alt="Картинка-Крым" class="elements__image">
+        <div class="elements__content">
+          <p class="elements__text">Крым</p>
+          <button class="elements__like-button"></button>
+        </div>
+      </article>
+      <article class="elements__card" aria-label="Карточка места">
+        <img src="./images/Sochi.jpg" alt="Картинка-Сочи" class="elements__image">
+        <div class="elements__content">
+          <p class="elements__text">Сочи</p>
+          <button class="elements__like-button"></button>
+        </div>
+      </article>
+      <article class="elements__card" aria-label="Карточка места">
+        <img src="./images/Altay.jpg" alt="Картинка-Алтай" class="elements__image">
+        <div class="elements__content">
+          <p class="elements__text">Алтай</p>
+          <button class="elements__like-button"></button>
+        </div>
+      </article>
+    </main>
+
+
+    <section class="popup">
+      <div class="popup__container">
+        <button class="popup__close-button"></button>
+        <div class="popup__content">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form class="popup__form">
+              <input id="nameInput" name="name" type="text" value="Жак-Ив Кусто" required class="popup__form-element">
+              <input id="jobInput" name="job" type="text" value="Исследователь океана" class="popup__form-element">
+              <input value="Сохранить" type="submit" class="popup__submit-button">
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="footer">
+      <p class="footer__text">© 2022 Mesto Russia</p>
+    </footer>
+
+  </div>
+  <script src="./scripts/index.js"></script>
+</body>
+</html>

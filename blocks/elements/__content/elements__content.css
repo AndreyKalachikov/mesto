@@ -1,0 +1,12 @@
+.elements__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+}
+
+@media screen and (min-width: 1360px) {
+  .elements__content {
+    min-height: 100px;
+  }
+}
