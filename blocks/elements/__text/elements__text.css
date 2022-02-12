@@ -9,12 +9,3 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-@media screen and (min-width: 1360px) {
-  .elements__text {
-    max-width: 280px;
-    font-size: 28px;
-    line-height: 32px;
-    padding-left: 23px;
-  }
-}

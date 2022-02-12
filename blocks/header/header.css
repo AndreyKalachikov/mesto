@@ -1,20 +1,12 @@
 .header {
   padding-top: 45px;
   padding-bottom: 36px;
-  max-width: 880px;
-  margin: 0 auto;
-  border-bottom: 1px solid #545454;
+  border-bottom: 1px solid rgb(84, 84, 84, .7);
   color: #FFF;
-}
-@media screen and (min-width: 1360px) {
-  .header {
-    max-width: 1280px;
-  }
 }
 
 @media screen and (max-width: 1024px) {
   .header {
-    max-width: 710px;
     padding-top: 38px;
     padding-bottom: 32px;
   }
@@ -22,7 +14,6 @@
 
 @media screen and (max-width: 768px) {
   .header {
-    max-width: 600px;
     padding-top: 28px;
     padding-bottom: 27px;
   }
