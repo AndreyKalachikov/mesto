@@ -5,6 +5,7 @@
   margin-top: 6px;
   border: none;
   background: url(../../../images/Edit_Button.svg) no-repeat center;
+  transition: opacity .4s;
 }
 
 .profile__edit-button:hover {

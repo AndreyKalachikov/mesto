@@ -1,0 +1,29 @@
+.content {
+  display: grid;
+  row-gap: 50px;
+  padding-top: 40px;
+  padding-bottom: 66px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .content {
+    max-width: 710px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .content {
+    padding-top: 42px;
+    padding-bottom: 48px;
+    row-gap: 36px;
+    max-width: 282px;
+  }
+}

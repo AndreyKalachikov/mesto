@@ -7,12 +7,6 @@
   font-size: 18px;
 }
 
-@media screen and (min-width: 1360px) {
-  .elements__image {
-    height: 380px;
-  }
-}
-
 @media screen and (max-width: 1024px) {
   .elements__image {
     height: 345px;
