@@ -26,48 +26,17 @@
       </section>
 
       <section class="elements" aria-label="Раздел с карточками мест">
-        <article class="elements__card" aria-label="Карточка места">
-          <img src="./images/Moscow.jpg" alt="Картинка-Москва" class="elements__image">
-          <div class="elements__content">
-            <h2 class="elements__text">Москва</h2>
-            <button class="elements__like-button" type="button"></button>
-          </div>
-        </article>
-        <article class="elements__card" aria-label="Карточка места">
-          <img src="./images/Piter.jpg" alt="Картинка-Санкт-Петербург" class="elements__image">
-          <div class="elements__content">
-            <h2 class="elements__text">Санкт-Петербург</h2>
-            <button class="elements__like-button" type="button"></button>
-          </div>
-        </article>
-        <article class="elements__card" aria-label="Карточка места">
-          <img src="./images/Kazan.jpg" alt="Картинка-Казань" class="elements__image">
-          <div class="elements__content">
-            <h2 class="elements__text">Казань</h2>
-            <button class="elements__like-button" type="button"></button>
-          </div>
-        </article>
-        <article class="elements__card" aria-label="Карточка места">
-          <img src="./images/Crimea.jpg" alt="Картинка-Крым" class="elements__image">
-          <div class="elements__content">
-            <h2 class="elements__text">Крым</h2>
-            <button class="elements__like-button" type="button"></button>
-          </div>
-        </article>
-        <article class="elements__card" aria-label="Карточка места">
-          <img src="./images/Sochi.jpg" alt="Картинка-Сочи" class="elements__image">
-          <div class="elements__content">
-            <h2 class="elements__text">Сочи</h2>
-            <button class="elements__like-button" type="button"></button>
-          </div>
-        </article>
-        <article class="elements__card" aria-label="Карточка места">
-          <img src="./images/Altay.jpg" alt="Картинка-Алтай" class="elements__image">
-          <div class="elements__content">
-            <h2 class="elements__text">Алтай</h2>
-            <button class="elements__like-button" type="button"></button>
-          </div>
-        </article>
+
+        <template id="elements-template">
+          <article class="elements__card" aria-label="Карточка места">
+            <img src="" alt="Картинка места" class="elements__image">
+            <div class="elements__content">
+              <h2 class="elements__text"></h2>
+              <button class="elements__like-button" type="button"></button>
+            </div>
+          </article>
+      </template>
+
       </section>
     </main>
 
@@ -75,14 +44,28 @@
       <p class="footer__text">© 2022 Mesto Russia</p>
     </footer>
 
-    <div class="popup">
+    <div class="popup profile-popup">
       <div class="popup__container">
         <button class="popup__close-button" type="button"></button>
         <div class="popup__content">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form" name="profile-edit-form">
+          <form class="popup__form" name="profile-edit-form" id="profile-form">
               <input id="nameInput" name="name" type="text" value="Жак-Ив Кусто" required class="popup__form-element">
               <input id="jobInput" name="job" type="text" value="Исследователь океана" required class="popup__form-element">
+              <input value="Сохранить" type="submit" class="popup__submit-button">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup add-card-popup">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <div class="popup__content">
+          <h2 class="popup__title">Новое место</h2>
+          <form class="popup__form" name="add-card-form" id="add-card-form">
+              <input id="titleInput" name="title" type="text" placeholder="Название" required class="popup__form-element">
+              <input id="linkInput" name="link" type="text" placeholder="Ссылка на картинку" required class="popup__form-element">
               <input value="Сохранить" type="submit" class="popup__submit-button">
           </form>
         </div>
