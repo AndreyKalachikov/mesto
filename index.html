@@ -29,6 +29,7 @@
 
         <template id="elements-template">
           <article class="elements__card" aria-label="Карточка места">
+            <button class="elements__delete-button" type="button"></button>
             <img src="" alt="Картинка места" class="elements__image">
             <div class="elements__content">
               <h2 class="elements__text"></h2>
@@ -69,6 +70,14 @@
               <input value="Сохранить" type="submit" class="popup__submit-button">
           </form>
         </div>
+      </div>
+    </div>
+
+    <div class="popup open-image-popup">
+      <div class="open-image-popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <img src="./images/Piter.jpg" alt="Картинка" class="open-image-popup__image">
+        <h2 class="open-image-popup__title">Картинка</h2>
       </div>
     </div>
 

@@ -6,3 +6,29 @@
   border-radius: 10px;
   position: relative;
 }
+
+.open-image-popup__container {
+  margin: 0 auto;
+  position: relative;
+  max-width: 75vw;
+  max-height: 75vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__image {
+  margin: 0;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  overflow:hidden;
+}
+
+.open-image-popup__title {
+  margin: 0;
+  color: #FFFFFF;
+  font-size: 12px;
+  line-height: 15px;
+  padding-top: 8px;
+  max-width: fit-content;
+}
