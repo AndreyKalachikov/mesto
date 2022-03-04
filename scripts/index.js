@@ -78,7 +78,7 @@ initialCards.forEach(arrayElement => {
 });
 
 // Функция добавления новой карточки на страницу
-function cardAddformSubmitHandler (evt) {
+function addCardformSubmitHandler (evt) {
   evt.preventDefault()
 
   const newCardElement = addCard(titleInput.value, linkInput.value);
@@ -105,12 +105,14 @@ function pressLike(evt) {
   evt.target.classList.toggle('elements__like-button_pressed');
 }
 
-// Функции открытия и закрытия попапа
+// Функции открытия и закрытия попапа (+ слушатели событий для закрытия через Escape)
 function addPopup(anyPopup) {
   anyPopup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByClickOnEscapeButton(anyPopup));
 }
 const removePopup = function(anyPopup) {
   anyPopup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByClickOnEscapeButton(anyPopup));
 }
 
 // Функция открытия попапа редактирования профиля
@@ -135,6 +137,24 @@ function openImage(evt) {
   addPopup(imageOpenPopupElement);
 }
 
+// Функция закрытия попапа по клику на оверлэй
+function closePopupByClickOnOverlay(anyPopup) {
+  return function(event){
+  if (event.target === event.currentTarget){
+    removePopup(anyPopup);
+  }
+}
+}
+
+// Для закрытия попапа по нажатию на Esc
+function closePopupByClickOnEscapeButton(anyPopup) {
+  return function(event){
+  if (event.key === 'Escape'){
+    removePopup(anyPopup);
+  }
+}
+}
+
 // Слушатели событий на кнопках
 profileEditButton.addEventListener('click', openPropfilePopup);
 profilePopupCloseButtonElement.addEventListener('click', () => removePopup(profilePopupElement));
@@ -142,6 +162,12 @@ formElement.addEventListener('submit', formSubmitHandler);
 
 popupAddCardButtonElement.addEventListener('click', openAddCardPopup);
 popupAddCardCloseButtonElement.addEventListener('click', () => removePopup(popupAddCardElement));
-cardAddFormElement.addEventListener('submit', cardAddformSubmitHandler);
+cardAddFormElement.addEventListener('submit', addCardformSubmitHandler);
 
 imageCloseButton.addEventListener('click', () => removePopup(imageOpenPopupElement));
+
+// Слушатели событий на оверлэях попапов
+popupAddCardElement.addEventListener('click', closePopupByClickOnOverlay(popupAddCardElement));
+profilePopupElement.addEventListener('click', closePopupByClickOnOverlay(profilePopupElement));
+imageOpenPopupElement.addEventListener('click', closePopupByClickOnOverlay(imageOpenPopupElement));
+
