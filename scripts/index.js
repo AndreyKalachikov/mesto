@@ -13,13 +13,15 @@ const nameInput = formElement.querySelector('#nameInput');
 const jobInput = formElement.querySelector('#jobInput');
 const profileName = document.querySelector('.profile__name');
 const profilePersonal = document.querySelector('.profile__personal');
+const formElementSubmitButton = formElement.querySelector('.popup__submit-button');
 
 // Переменные для формы добавления карточки
 const elementsContainer = document.querySelector('.elements');
 const elementsTemplait = document.querySelector('#elements-template').content;
-const cardAddFormElement = document.querySelector('#add-card-form');
+const cardAddFormElement = document.querySelector('#card-add-form');
 const titleInput = cardAddFormElement.querySelector('#titleInput');
 const linkInput = cardAddFormElement.querySelector('#linkInput');
+const cardAddFormSubmitButton = cardAddFormElement.querySelector('.popup__submit-button');
 
 // Переменные для попапа открытия изображения
 const imageOpenPopupElement =  document.querySelector('.open-image-popup');
@@ -118,13 +120,21 @@ const removePopup = function(anyPopup) {
 // Функция открытия попапа редактирования профиля
 function openPropfilePopup() {
   nameInput.value = profileName.textContent;
+  checkInputValidity(formElement, nameInput);
   jobInput.value = profilePersonal.textContent;
+  checkInputValidity(formElement, jobInput);
+  formElementSubmitButton.removeAttribute('disabled');
+  formElementSubmitButton.classList.remove('popup__submit-button_disabled');
   addPopup(profilePopupElement);
   }
 
 // Функция открытия попапа добавления карточки
 function openAddCardPopup() {
   cardAddFormElement.reset();
+  hideInputError(cardAddFormElement, titleInput);
+  hideInputError(cardAddFormElement, linkInput);
+  cardAddFormSubmitButton.setAttribute('disabled', true);
+  cardAddFormSubmitButton.classList.add('popup__submit-button_disabled');
   addPopup(popupAddCardElement);
 }
 
