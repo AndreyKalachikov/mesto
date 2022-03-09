@@ -9,39 +9,39 @@ const settingsObject = {
 }
 
 // функция добавляет стиль и текст ошибок
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (formElement, inputElement, errorMessage, inputErrorClass, errorClass) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add(settingsObject.inputErrorClass);
+  inputElement.classList.add(inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add(settingsObject.errorClass);
+  errorElement.classList.add(errorClass);
 };
 
 // функция скрывает стиль и текст ошибок
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement, inputErrorClass, errorClass) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove(settingsObject.inputErrorClass);
-  errorElement.classList.remove(settingsObject.errorClass);
+  inputElement.classList.remove(inputErrorClass);
+  errorElement.classList.remove(errorClass);
   errorElement.textContent = '';
 };
 
 // функция проверяет поля input на валидность
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, {inputErrorClass, errorClass}) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(formElement, inputElement, inputElement.validationMessage, inputErrorClass, errorClass);
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, inputErrorClass, errorClass);
   }
 };
 
 // функция добавляет слушатели для стилей валидности на все поля и кнопки
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(settingsObject.inputSelector));
-  const buttonElement = formElement.querySelector(settingsObject.submitButtonSelector);
-  toggleButtonState(inputList, buttonElement);
+const setEventListeners = (formElement, {inputSelector, submitButtonSelector, inactiveButtonClass, ...rest}) => {
+  const inputList = Array.from(formElement.querySelectorAll(inputSelector));
+  const buttonElement = formElement.querySelector(submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, inactiveButtonClass);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
-      checkInputValidity(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
+      checkInputValidity(formElement, inputElement, rest);
+      toggleButtonState(inputList, buttonElement, inactiveButtonClass);
     });
   });
 };
@@ -53,25 +53,35 @@ const hasInvalidInput = (inputList) =>{
   })
 }
 
-// функция стилизует и блокирует/разблокирует кнопки сабмита в формах
-const toggleButtonState = (inputList, buttonElement) => {
+// функция стилизует и разблокирует кнопки сабмита в формах
+const enableSubmitButton = (buttonElement, inactiveButtonClass) => {
+  buttonElement.classList.remove(inactiveButtonClass);
+  buttonElement.removeAttribute('disabled');
+}
+
+// функция стилизует и блокирует кнопки сабмита в формах
+const disableSubmitButton = (buttonElement, inactiveButtonClass) => {
+  buttonElement.classList.add(inactiveButtonClass);
+  buttonElement.setAttribute('disabled', true);
+}
+
+// функция меняет состояние кнопки сабмита формы в зависимости от валидности полей
+const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
   if (hasInvalidInput(inputList)){
-    buttonElement.classList.add(settingsObject.inactiveButtonClass);
-    buttonElement.setAttribute('disabled', true);
+    disableSubmitButton(buttonElement, inactiveButtonClass);
   } else {
-    buttonElement.classList.remove(settingsObject.inactiveButtonClass);
-    buttonElement.removeAttribute('disabled');
+    enableSubmitButton(buttonElement, inactiveButtonClass);
   }
 }
 
 // функция включает валидацию всех форм
-const enableValidation = (settingsObject) => {
-  const formList = Array.from(document.querySelectorAll(settingsObject.formSelector));
+const enableValidation = ({formSelector, ...rest}) => {
+  const formList = Array.from(document.querySelectorAll(formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     })
-    setEventListeners(formElement);
+    setEventListeners(formElement, rest);
   })
 }
 
