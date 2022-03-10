@@ -92,19 +92,19 @@ const removePopup = function(anyPopup) {
 // Функция открытия попапа редактирования профиля
 function openPropfilePopup() {
   nameInput.value = profileName.textContent;
-  hideInputError(formElement, nameInput, 'popup__form-element_type_error', 'popup__input-error_active');
+  hideInputError(formElement, nameInput, settingsObject.inputErrorClass, settingsObject.errorClass);
   jobInput.value = profilePersonal.textContent;
-  hideInputError(formElement, jobInput, 'popup__form-element_type_error', 'popup__input-error_active');
-  enableSubmitButton(formElementSubmitButton, 'popup__submit-button_disabled');
+  hideInputError(formElement, jobInput, settingsObject.inputErrorClass, settingsObject.errorClass);
+  enableSubmitButton(formElementSubmitButton, settingsObject.inactiveButtonClass);
   addPopup(profilePopupElement);
   }
 
 // Функция открытия попапа добавления карточки
 function openAddCardPopup() {
   cardAddFormElement.reset();
-  hideInputError(cardAddFormElement, titleInput, 'popup__form-element_type_error', 'popup__input-error_active');
-  hideInputError(cardAddFormElement, linkInput, 'popup__form-element_type_error', 'popup__input-error_active');
-  disableSubmitButton(cardAddFormSubmitButton, 'popup__submit-button_disabled');
+  hideInputError(cardAddFormElement, titleInput, settingsObject.inputErrorClass, settingsObject.errorClass);
+  hideInputError(cardAddFormElement, linkInput, settingsObject.inputErrorClass, settingsObject.errorClass);
+  disableSubmitButton(cardAddFormSubmitButton, settingsObject.inactiveButtonClass);
   addPopup(popupAddCardElement);
 }
 
@@ -149,4 +149,3 @@ imageCloseButton.addEventListener('click', () => removePopup(imageOpenPopupEleme
 popupAddCardElement.addEventListener('click', closePopupByClickOnOverlay(popupAddCardElement));
 profilePopupElement.addEventListener('click', closePopupByClickOnOverlay(profilePopupElement));
 imageOpenPopupElement.addEventListener('click', closePopupByClickOnOverlay(imageOpenPopupElement));
-
